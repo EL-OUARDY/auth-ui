@@ -54,9 +54,9 @@ const Input = forwardRef<HTMLInputElement, Props>(
             className="text-muted-foreground/50 bg-secondary absolute top-0 right-1 flex h-full w-8 cursor-pointer items-center justify-center"
           >
             {isPasswordVisible ? (
-              <EyeIcon className="size-4" />
-            ) : (
               <EyeOffIcon className="size-4" />
+            ) : (
+              <EyeIcon className="size-4" />
             )}
           </div>
         )}
