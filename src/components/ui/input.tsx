@@ -15,7 +15,7 @@ interface Props extends InputHTMLAttributes<HTMLInputElement> {
 
 const Input = forwardRef<HTMLInputElement, Props>(
   ({ className, icon, ...props }, ref) => {
-    const [pwdShown, setPwdShown] = useState(false);
+    const [isPasswordVisible, setIsPasswordVisible] = useState(false);
     const id = useId();
     const isPasswordInput = props["type"] === "password";
 
@@ -35,19 +35,25 @@ const Input = forwardRef<HTMLInputElement, Props>(
           {...props}
           ref={ref}
           className={clsx(
-            "ring-ring/20 text-md from-muted/30 to-muted flex h-10 w-full rounded-md bg-gradient-to-r p-2 px-3 py-2 focus-visible:ring-1 focus-visible:ring-offset-2 focus-visible:outline-none",
+            "ring-ring/20 text-md from-accent to-secondary flex h-10 w-full rounded-md bg-gradient-to-r p-2 px-3 py-2 focus-visible:ring-1 focus-visible:ring-offset-2 focus-visible:outline-none",
             icon && "pl-8",
             className,
           )}
-          type={isPasswordInput && pwdShown ? "text" : "password"}
+          type={
+            isPasswordInput
+              ? isPasswordVisible
+                ? "text"
+                : "password"
+              : props["type"]
+          }
         />
 
         {isPasswordInput && (
           <div
-            onClick={() => setPwdShown((v) => !v)}
-            className="bg-muted text-muted-foreground/50 absolute top-0 right-1 flex h-full w-8 cursor-pointer items-center justify-center"
+            onClick={() => setIsPasswordVisible((v) => !v)}
+            className="text-muted-foreground/50 bg-secondary absolute top-0 right-1 flex h-full w-8 cursor-pointer items-center justify-center"
           >
-            {pwdShown ? (
+            {isPasswordVisible ? (
               <EyeIcon className="size-4" />
             ) : (
               <EyeOffIcon className="size-4" />

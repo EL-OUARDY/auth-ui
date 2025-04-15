@@ -13,7 +13,7 @@ const Button = forwardRef<HTMLButtonElement, Props>(
         {...props}
         ref={ref}
         className={clsx(
-          "bg-primary text-primary-foreground hover:bg-primary/90 inline-flex h-10 w-fit cursor-pointer items-center justify-center px-4 py-2 text-xl whitespace-nowrap transition-colors focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50",
+          "bg-primary text-primary-foreground hover:bg-primary/90 inline-flex h-10 w-fit cursor-pointer items-center justify-center px-4 py-2 text-lg whitespace-nowrap uppercase transition-colors focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50",
           className,
         )}
       >
