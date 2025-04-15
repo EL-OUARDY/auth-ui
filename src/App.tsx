@@ -1,14 +1,16 @@
-import ForgotPassword from "./components/ForgotPassword";
 import SignIn from "./components/SignIn";
-import SignUp from "./components/SignUp";
+import SignInPrompt from "./components/SignInPrompt";
+import SignUpPrompt from "./components/SignUpPrompt";
 
 function App() {
   return (
     <div className="page-wrapper flex h-screen items-center justify-center font-sans select-none">
-      <div className="w-sm overflow-hidden bg-white p-8 shadow-xl">
-        <SignIn />
-        {/* <SignUp /> */}
-        {/* <ForgotPassword /> */}
+      <div className="bg-strong/70 flex w-4xl overflow-hidden shadow-md">
+        <div className="flex flex-1 items-center justify-center bg-white px-8 py-32">
+          <SignIn className="w-xs" />
+        </div>
+        <SignUpPrompt />
+        {/* <SignInPrompt /> */}
       </div>
     </div>
   );

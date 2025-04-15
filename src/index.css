@@ -15,6 +15,7 @@
     --border: #e5e7eb;
     --input: #e5e7eb;
     --ring: #99a1af;
+    --strong: #00bcd4;
 }
 
 @theme inline {
@@ -35,6 +36,7 @@
     --color-border: var(--border);
     --color-input: var(--input);
     --color-ring: var(--ring);
+    --color-strong: var(--strong);
 }
 
 @layer base {

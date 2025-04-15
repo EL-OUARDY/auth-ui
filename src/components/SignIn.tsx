@@ -47,7 +47,7 @@ function SignIn({ className }: Props) {
         </div>
       </div>
       <div className="text-center">
-        <Button className="px-6">LOGIN</Button>
+        <Button className="px-6 uppercase">login</Button>
       </div>
     </div>
   );
