@@ -1,14 +1,14 @@
-import Input from "../ui/input";
-import GoogleIcon from "../icons/google";
-import FacebookIcon from "../icons/facebook";
-import XIcon from "../icons/x";
-import AppleIcon from "../icons/apple";
-import Button from "../ui/button";
-import EnvelopeIcon from "../icons/envelope";
-import PasswordIcon from "../icons/password";
-import UserIcon from "../icons/user";
 import { cn } from "@/lib/utils";
-import { Checkbox } from "../ui/checkbox";
+import Input from "@/components/ui/input";
+import FacebookIcon from "@/components/icons/facebook";
+import GoogleIcon from "@/components/icons/google";
+import XIcon from "@/components/icons/x";
+import AppleIcon from "@/components/icons/apple";
+import EnvelopeIcon from "@/components/icons/envelope";
+import PasswordIcon from "@/components/icons/password";
+import Button from "@/components/ui/button";
+import { Checkbox } from "@radix-ui/react-checkbox";
+import UserIcon from "@/components/icons/user";
 
 interface Props {
   className?: string;

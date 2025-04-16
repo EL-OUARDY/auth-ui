@@ -1,39 +1,34 @@
-import { Checkbox } from "../ui/checkbox";
-import Input from "../ui/input";
-import GoogleIcon from "../icons/google";
-import FacebookIcon from "../icons/facebook";
-import XIcon from "../icons/x";
-import AppleIcon from "../icons/apple";
-import Button from "../ui/button";
-import EnvelopeIcon from "../icons/envelope";
-import PasswordIcon from "../icons/password";
+import { Checkbox } from "../../ui/checkbox";
+import Input from "../../ui/input";
+import GoogleIcon from "../../icons/google";
+import FacebookIcon from "../../icons/facebook";
+import XIcon from "../../icons/x";
+import AppleIcon from "../../icons/apple";
+import Button from "../../ui/button";
+import EnvelopeIcon from "../../icons/envelope";
+import PasswordIcon from "../../icons/password";
 import { anim, cn } from "@/lib/utils";
 import { useState } from "react";
 import { motion } from "motion/react";
-import ArrowLeftIcon from "../icons/arrowLeft";
+import ArrowLeftIcon from "../../icons/arrowLeft";
 import { variants } from "./animations";
 
 interface Props {
   className?: string;
 }
 
-type ActivePage = "signin" | "forgotPassword";
+type FormType = "signin" | "forgotPassword";
 
 function SignIn({ className }: Props) {
-  const [activePage, setActivePage] = useState<ActivePage>("signin");
+  const [activeForm, setActiveForm] = useState<FormType>("signin");
 
   return (
-    <div className="overflow-hidden">
+    <div className={cn("overflow-hidden", className)}>
       <motion.div
-        {...anim(activePage, variants)}
+        {...anim(activeForm, variants)}
         className="relative flex items-center"
       >
-        <form
-          className={cn(
-            "sign-in relative flex min-w-full flex-col gap-4 p-4 text-center",
-            className,
-          )}
-        >
+        <form className="sign-in relative flex min-w-full flex-col gap-4 p-4 text-center">
           <h2 className="text-primary text-5xl">Sign in</h2>
           <div className="social-login text-muted-foreground flex justify-center gap-4 text-center">
             <FacebookIcon className="hover:text-foreground size-8 cursor-pointer rounded-full border p-1" />
@@ -62,8 +57,8 @@ function SignIn({ className }: Props) {
             </div>
             <div
               onClick={() => {
-                setActivePage(
-                  activePage === "signin" ? "forgotPassword" : "signin",
+                setActiveForm(
+                  activeForm === "signin" ? "forgotPassword" : "signin",
                 );
               }}
               className="cursor-pointer hover:underline"
@@ -85,8 +80,8 @@ function SignIn({ className }: Props) {
           <div className="flex items-center justify-center space-x-2">
             <button
               onClick={() => {
-                setActivePage(
-                  activePage === "signin" ? "forgotPassword" : "signin",
+                setActiveForm(
+                  activeForm === "signin" ? "forgotPassword" : "signin",
                 );
               }}
               className="cursor-pointer"
