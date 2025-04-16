@@ -1,10 +1,10 @@
 import { useState } from "react";
-import SignIn from "./components/SignIn";
-import SignInPrompt from "./components/SignInPrompt";
-import SignUpPrompt from "./components/SignUpPrompt";
-import SignUp from "./components/SignUp";
+import SignIn from "./components/signin/SignIn";
+import SignInPrompt from "./components/signin/SignInPrompt";
+import SignUpPrompt from "./components/signup/SignUpPrompt";
 import clsx from "clsx";
 import Button from "./components/ui/button";
+import SignUp from "./components/signup/SignUp";
 
 type FormType = "signin" | "signup";
 

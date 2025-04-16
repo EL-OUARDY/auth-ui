@@ -1,14 +1,14 @@
-import { Checkbox } from "./ui/checkbox";
-import Input from "./ui/input";
-import GoogleIcon from "./icons/google";
-import FacebookIcon from "./icons/facebook";
-import XIcon from "./icons/x";
-import AppleIcon from "./icons/apple";
-import Button from "./ui/button";
-import EnvelopeIcon from "./icons/envelope";
-import PasswordIcon from "./icons/password";
-import UserIcon from "./icons/user";
+import Input from "../ui/input";
+import GoogleIcon from "../icons/google";
+import FacebookIcon from "../icons/facebook";
+import XIcon from "../icons/x";
+import AppleIcon from "../icons/apple";
+import Button from "../ui/button";
+import EnvelopeIcon from "../icons/envelope";
+import PasswordIcon from "../icons/password";
+import UserIcon from "../icons/user";
 import { cn } from "@/lib/utils";
+import { Checkbox } from "../ui/checkbox";
 
 interface Props {
   className?: string;
@@ -58,7 +58,7 @@ function SignUp({ className }: Props) {
         </label>
       </div>
       <div className="text-center">
-        <Button className="px-8">Sign up</Button>
+        <Button className="px-8 uppercase">Sign up</Button>
       </div>
     </form>
   );
