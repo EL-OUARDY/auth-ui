@@ -1,8 +1,8 @@
-import clsx from "clsx";
 import Input from "./ui/input";
 import Button from "./ui/button";
 import EnvelopeIcon from "./icons/envelope";
 import ArrowLeftIcon from "./icons/arrowLeft";
+import { cn } from "@/lib/utils";
 
 interface Props {
   className?: string;
@@ -11,7 +11,7 @@ interface Props {
 function ForgotPassword({ className }: Props) {
   return (
     <div
-      className={clsx(
+      className={cn(
         "forgot-password flex flex-col gap-4 text-center",
         className,
       )}

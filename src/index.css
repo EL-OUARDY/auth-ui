@@ -3,6 +3,7 @@
 
 :root {
     --primary: #00ced1;
+    --primary-background: #00bcd4;
     --muted: #ebedee;
     --muted-foreground: #6a7282;
     --radius: 0.625rem;
@@ -15,7 +16,6 @@
     --border: #e5e7eb;
     --input: #e5e7eb;
     --ring: #99a1af;
-    --strong: #00bcd4;
 }
 
 @theme inline {
@@ -36,7 +36,7 @@
     --color-border: var(--border);
     --color-input: var(--input);
     --color-ring: var(--ring);
-    --color-strong: var(--strong);
+    --color-primary-background: var(--primary-background);
 }
 
 @layer base {

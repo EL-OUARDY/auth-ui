@@ -1,4 +1,4 @@
-import clsx from "clsx";
+import { cn } from "@/lib/utils";
 import { EyeIcon, EyeOffIcon } from "lucide-react";
 import {
   InputHTMLAttributes,
@@ -34,7 +34,7 @@ const Input = forwardRef<HTMLInputElement, Props>(
           id={id}
           {...props}
           ref={ref}
-          className={clsx(
+          className={cn(
             "ring-ring/20 text-md from-accent to-secondary flex h-10 w-full rounded-md bg-gradient-to-r p-2 px-3 py-2 focus-visible:ring-1 focus-visible:ring-offset-2 focus-visible:outline-none",
             icon && "pl-8",
             className,

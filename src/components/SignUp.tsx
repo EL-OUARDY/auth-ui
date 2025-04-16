@@ -1,4 +1,3 @@
-import clsx from "clsx";
 import { Checkbox } from "./ui/checkbox";
 import Input from "./ui/input";
 import GoogleIcon from "./icons/google";
@@ -9,6 +8,7 @@ import Button from "./ui/button";
 import EnvelopeIcon from "./icons/envelope";
 import PasswordIcon from "./icons/password";
 import UserIcon from "./icons/user";
+import { cn } from "@/lib/utils";
 
 interface Props {
   className?: string;
@@ -16,7 +16,9 @@ interface Props {
 
 function SignUp({ className }: Props) {
   return (
-    <div className={clsx("sign-up flex flex-col gap-4 text-center", className)}>
+    <form
+      className={cn("sign-up flex flex-col gap-4 px-4 text-center", className)}
+    >
       <h2 className="text-primary text-5xl">Create Account</h2>
       <div className="social-login text-muted-foreground flex justify-center gap-4 text-center">
         <FacebookIcon className="hover:text-foreground size-8 cursor-pointer rounded-full border p-1" />
@@ -56,9 +58,9 @@ function SignUp({ className }: Props) {
         </label>
       </div>
       <div className="text-center">
-        <Button className="px-6">Sign up</Button>
+        <Button className="px-8">Sign up</Button>
       </div>
-    </div>
+    </form>
   );
 }
 
