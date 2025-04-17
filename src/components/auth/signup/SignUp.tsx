@@ -26,7 +26,7 @@ function SignUp({ className }: Props) {
         <XIcon className="hover:text-foreground size-8 cursor-pointer rounded-full border p-1" />
         <AppleIcon className="hover:text-foreground size-8 cursor-pointer rounded-full border p-1" />
       </div>
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-2 text-lg">
         <Input
           type="text"
           placeholder="Name"
@@ -43,7 +43,7 @@ function SignUp({ className }: Props) {
           icon={<PasswordIcon className="size-4" />}
         />
       </div>
-      <div className="text-muted-foreground flex items-center gap-1">
+      <div className="text-muted-foreground flex items-center justify-center gap-1">
         <Checkbox id="privacy-policy" className="size-3.5 cursor-pointer" />
         <label htmlFor="privacy-policy" className="cursor-pointer">
           I agree to the{" "}

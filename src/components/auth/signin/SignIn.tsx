@@ -36,7 +36,7 @@ function SignIn({ className }: Props) {
             <XIcon className="hover:text-foreground size-8 cursor-pointer rounded-full border p-1" />
             <AppleIcon className="hover:text-foreground size-8 cursor-pointer rounded-full border p-1" />
           </div>
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-2 text-lg">
             <Input
               type="email"
               placeholder="Email"
@@ -70,8 +70,9 @@ function SignIn({ className }: Props) {
             <Button className="px-8 uppercase">login</Button>
           </div>
         </form>
+
         {/* Forgot password */}
-        <div
+        <form
           className={cn(
             "forgot-password relative flex min-w-full flex-col gap-4 p-4 text-center",
             className,
@@ -85,6 +86,7 @@ function SignIn({ className }: Props) {
                 );
               }}
               className="cursor-pointer"
+              type="button"
             >
               <ArrowLeftIcon className="text-muted-foreground/30 hover:text-muted-foreground/50 size-7" />
             </button>
@@ -94,7 +96,7 @@ function SignIn({ className }: Props) {
             Don't worry! Just enter your email address below and we'll send you
             a link to reset your password.
           </div>
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-2 text-lg">
             <Input
               type="email"
               placeholder="Email"
@@ -105,7 +107,7 @@ function SignIn({ className }: Props) {
           <div className="text-center">
             <Button className="px-6">Submit</Button>
           </div>
-        </div>
+        </form>
       </motion.div>
     </div>
   );

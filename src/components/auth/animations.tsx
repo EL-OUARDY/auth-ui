@@ -18,11 +18,11 @@ export const sidePanelVariants: Variants = {
   // initial: {},
   // signin: (w) => ({
   //   width: [w, w + 101, w],
-  //   transition: { duration: ANIMATION_DURATION, times: [0, 0.3, 1] },
+  //   transition: { duration: ANIMATION_DURATION },
   // }),
   // signup: (w) => ({
   //   width: [w, w + 100, w],
-  //   transition: { duration: ANIMATION_DURATION, times: [0, 0.3, 1] },
+  //   transition: { duration: ANIMATION_DURATION },
   // }),
 };
 
@@ -66,10 +66,10 @@ export const bgShapesVariants: Variants = {
   initial: { x: 0 },
   signin: {
     x: 0,
-    transition: { duration: ANIMATION_DURATION + 0.2, ease: "easeInOut" },
+    transition: { duration: ANIMATION_DURATION + 0.25, ease: "easeInOut" },
   },
   signup: {
     x: "-14%",
-    transition: { duration: ANIMATION_DURATION + 0.2, ease: "easeInOut" },
+    transition: { duration: ANIMATION_DURATION + 0.25, ease: "easeInOut" },
   },
 };

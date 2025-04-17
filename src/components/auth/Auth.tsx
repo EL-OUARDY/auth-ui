@@ -34,16 +34,8 @@ function Auth() {
   }, []);
 
   return (
-    <div className="page-wrapper flex h-screen items-center justify-center font-sans select-none">
+    <div className="page-wrapper selection:bg-primary-background flex h-screen items-center justify-center font-sans select-none selection:text-white">
       <div className="bg-primary-background/70 relative h-148 w-216 overflow-hidden shadow-md">
-        {/* Side panel texts */}
-        <div className="absolute left-0 z-2 flex h-full w-1/3 items-center px-6">
-          <SignInPrompt />
-        </div>
-        <div className="absolute right-0 z-2 flex h-full w-1/3 items-center px-6">
-          <SignUpPrompt />
-        </div>
-
         <motion.div
           {...anim(activeForm, containerVariants)}
           className="absolute z-3 flex h-full w-fit"
@@ -54,7 +46,7 @@ function Auth() {
               {...anim(activeForm, signInVariants)}
               className="flex w-full items-center justify-center px-8"
             >
-              <div className="z-99 w-xs">
+              <div className="z-99 w-88">
                 <SignIn />
               </div>
             </motion.div>
@@ -64,10 +56,10 @@ function Auth() {
           <motion.div
             ref={sidePanelRef}
             {...anim(activeForm, sidePanelVariants, sidePanelWidth)}
-            className="relative z-101 mt-36 flex w-72 flex-col items-center justify-center"
+            className="relative z-101 flex w-72 flex-col items-center justify-center"
           >
             <Button
-              className="w-2/5 overflow-hidden p-0 uppercase"
+              className="mt-34 w-2/5 overflow-hidden p-0 uppercase"
               variant="outline"
               onClick={() =>
                 setActiveForm(
@@ -93,12 +85,20 @@ function Auth() {
               {...anim(activeForm, signUpVariants)}
               className="flex w-full items-center justify-center px-8"
             >
-              <div className="z-99 w-xs">
+              <div className="z-99 w-88">
                 <SignUp />
               </div>
             </motion.div>
           </div>
         </motion.div>
+
+        {/* Side panel texts */}
+        <div className="absolute left-0 z-2 flex h-full w-1/3 items-center px-8">
+          <SignInPrompt />
+        </div>
+        <div className="absolute right-0 z-2 flex h-full w-1/3 items-center px-8">
+          <SignUpPrompt />
+        </div>
 
         {/* Shapes */}
         <motion.div
@@ -111,7 +111,7 @@ function Auth() {
           />
           <img
             src={BagsShape}
-            className="absolute top-2 left-76 size-28 rotate-[23deg]"
+            className="absolute top-2 left-74 size-28 rotate-[23deg]"
           />
           <img
             src={phoneShape}
@@ -119,11 +119,11 @@ function Auth() {
           />
           <img
             src={hatShape}
-            className="absolute top-80 left-118 size-16 -rotate-[31deg] opacity-60"
+            className="absolute top-80 left-118 size-16 -rotate-[31deg] opacity-40"
           />
           <img
             src={shirtShape}
-            className="absolute top-110 left-56 size-32 -rotate-[31deg]"
+            className="absolute top-106 left-56 size-32 -rotate-[31deg]"
           />
         </motion.div>
       </div>
