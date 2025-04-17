@@ -30,11 +30,11 @@ export const propmtBtnVariants: Variants = {
   initial: { x: 0 },
   signin: {
     x: 0,
-    transition: { duration: 1 },
+    transition: { duration: ANIMATION_DURATION + 0.2 },
   },
   signup: {
     x: "-100%",
-    transition: { duration: 1 },
+    transition: { duration: ANIMATION_DURATION + 0.2 },
   },
 };
 
@@ -59,5 +59,17 @@ export const signUpVariants: Variants = {
   signup: {
     x: 0,
     transition: { duration: ANIMATION_DURATION - 0.3, delay: 0.3 },
+  },
+};
+
+export const bgShapesVariants: Variants = {
+  initial: { x: 0 },
+  signin: {
+    x: 0,
+    transition: { duration: ANIMATION_DURATION + 0.2, ease: "easeInOut" },
+  },
+  signup: {
+    x: "-14%",
+    transition: { duration: ANIMATION_DURATION + 0.2, ease: "easeInOut" },
   },
 };

@@ -7,8 +7,8 @@ import AppleIcon from "@/components/icons/apple";
 import EnvelopeIcon from "@/components/icons/envelope";
 import PasswordIcon from "@/components/icons/password";
 import Button from "@/components/ui/button";
-import { Checkbox } from "@radix-ui/react-checkbox";
 import UserIcon from "@/components/icons/user";
+import { Checkbox } from "@/components/ui/checkbox";
 
 interface Props {
   className?: string;
@@ -57,6 +57,7 @@ function SignUp({ className }: Props) {
           .
         </label>
       </div>
+
       <div className="text-center">
         <Button className="px-8 uppercase">Sign up</Button>
       </div>
