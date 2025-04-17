@@ -1,36 +1,63 @@
 import { Variants } from "motion/react";
 
-export const propmtBtnVariants: Variants = {
-  initial: { left: 0 },
-  signin: {
-    left: 0,
-    transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] },
-  },
-  signup: {
-    left: "-100%",
-    transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] },
-  },
-};
+const ANIMATION_DURATION = 1;
 
 export const containerVariants: Variants = {
-  initial: { left: 0 },
+  initial: { x: 0 },
   signin: {
-    left: 0,
-    transition: { duration: 0.7 },
+    x: 0,
+    transition: { duration: ANIMATION_DURATION },
   },
   signup: {
-    left: "-66.66%",
-    transition: { duration: 0.7 },
+    x: "-36rem",
+    transition: { duration: ANIMATION_DURATION },
   },
 };
 
 export const sidePanelVariants: Variants = {
-  signin: (w) => ({
-    width: [w, w + 100, w],
-    transition: { duration: 0.7, ease: "linear" },
-  }),
-  signup: (w) => ({
-    width: [w, w + 100, w],
-    transition: { duration: 0.7, ease: "linear" },
-  }),
+  // initial: {},
+  // signin: (w) => ({
+  //   width: [w, w + 101, w],
+  //   transition: { duration: ANIMATION_DURATION, times: [0, 0.3, 1] },
+  // }),
+  // signup: (w) => ({
+  //   width: [w, w + 100, w],
+  //   transition: { duration: ANIMATION_DURATION, times: [0, 0.3, 1] },
+  // }),
+};
+
+export const propmtBtnVariants: Variants = {
+  initial: { x: 0 },
+  signin: {
+    x: 0,
+    transition: { duration: 1 },
+  },
+  signup: {
+    x: "-100%",
+    transition: { duration: 1 },
+  },
+};
+
+export const signInVariants: Variants = {
+  initial: { x: 0 },
+  signin: {
+    x: 0,
+    transition: { duration: ANIMATION_DURATION - 0.3, delay: 0.3 },
+  },
+  signup: {
+    x: "100%",
+    transition: { duration: ANIMATION_DURATION - 0.3 },
+  },
+};
+
+export const signUpVariants: Variants = {
+  initial: { x: "-100%" },
+  signin: {
+    x: "-100%",
+    transition: { duration: ANIMATION_DURATION - 0.3 },
+  },
+  signup: {
+    x: 0,
+    transition: { duration: ANIMATION_DURATION - 0.3, delay: 0.3 },
+  },
 };

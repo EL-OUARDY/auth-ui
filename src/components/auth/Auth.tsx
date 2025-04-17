@@ -8,6 +8,8 @@ import {
   containerVariants,
   propmtBtnVariants,
   sidePanelVariants,
+  signInVariants,
+  signUpVariants,
 } from "./animations";
 import { anim } from "@/lib/utils";
 import { motion } from "motion/react";
@@ -28,25 +30,39 @@ function Auth() {
   return (
     <div className="page-wrapper flex h-screen items-center justify-center font-sans select-none">
       <div className="bg-primary-background/70 relative h-148 w-216 overflow-hidden shadow-md">
+        {/* Side panel texts */}
+        <div className="absolute left-0 flex h-full w-1/3 items-center px-8">
+          <SignInPrompt />
+        </div>
+        <div className="absolute right-0 flex h-full w-1/3 items-center px-8">
+          <SignUpPrompt />
+        </div>
+
         <motion.div
           {...anim(activeForm, containerVariants)}
           className="absolute flex h-full w-fit"
         >
           {/* Sign in */}
-          <div className="flex w-144 items-center justify-center bg-white px-8">
-            <SignIn className="z-99 w-xs" />
+          <div className="flex w-144 items-center justify-center overflow-hidden bg-white">
+            <motion.div
+              {...anim(activeForm, signInVariants)}
+              className="flex w-full items-center justify-center px-8"
+            >
+              <div className="z-99 w-xs">
+                <SignIn />
+              </div>
+            </motion.div>
           </div>
 
           {/* Prompt panel */}
           <motion.div
-            key={activeForm}
             layout
             ref={sidePanelRef}
             {...anim(activeForm, sidePanelVariants, sidePanelWidth)}
-            className="relative z-100 mt-46 flex w-72 flex-col items-center justify-center"
+            className="relative z-101 mt-46 flex w-72 flex-col items-center justify-center"
           >
             <Button
-              className="relative w-2/5 overflow-hidden p-0 uppercase"
+              className="w-2/5 overflow-hidden p-0 uppercase"
               variant="outline"
               onClick={() =>
                 setActiveForm(
@@ -58,7 +74,7 @@ function Auth() {
             >
               <motion.div
                 {...anim(activeForm, propmtBtnVariants)}
-                className="absolute left-0 flex w-full"
+                className="flex w-full"
               >
                 <div className="min-w-full">Sign up</div>
                 <div className="min-w-full">Sign in</div>
@@ -67,18 +83,17 @@ function Auth() {
           </motion.div>
 
           {/* Sign up */}
-          <div className="flex w-144 items-center justify-center bg-white px-8">
-            <SignUp className="z-99 w-xs" />
+          <div className="flex w-144 items-center justify-center overflow-hidden bg-white">
+            <motion.div
+              {...anim(activeForm, signUpVariants)}
+              className="flex w-full items-center justify-center px-8"
+            >
+              <div className="z-99 w-xs">
+                <SignUp />
+              </div>
+            </motion.div>
           </div>
         </motion.div>
-
-        {/* Side panel texts */}
-        <div className="absolute left-0 flex h-full w-1/3 items-center px-8">
-          <SignInPrompt />
-        </div>
-        <div className="absolute right-0 flex h-full w-1/3 items-center px-8">
-          <SignUpPrompt />
-        </div>
       </div>
     </div>
   );
