@@ -1,24 +1,23 @@
-# Modern Authentication UI
+# Authentication UI
 
 A sleek and modern authentication interface built with React, TypeScript, and TailwindCSS. The UI features a sliding animation between sign-in and sign-up forms with a dynamic sidebar overlay.
 
-![Auth UI Demo](demo.png)
+![Auth UI Demo](demo.gif)
 
 ## Features
 
 - 🎨 Modern and responsive design
-- 🔄 Smooth sliding animations using Motion
-- 🔐 Sign in and sign up forms
+- 🔐 Sign in, sign up and Forgot password forms
+- 🔄 Smooth sliding animations using `Framer Motion`
 - 🎭 Password visibility toggle
-- 🌐 Social media authentication options
-- 📱 Forgot password workflow
 - ✨ Custom UI components
+- 🌐 Social media authentication options
 - 🎯 Fully TypeScript support
 - 🎯 Tailwind CSS for styling
 
 ## Tech Stack
 
-- React
+- React 19
 - TypeScript
 - Tailwind CSS v4
 - Framer Motion (for animations)
@@ -59,14 +58,18 @@ npm run dev
 ```
 src/
 ├── components/
-│   ├── auth/         # Authentication related components
+│   └── auth/         # Authentication related
+│       │── signin/   # Signin components + animation
+│       │── signup/   # Signup components
+│       └── sidebar/  # Sidebar components + animation
+components
 │   ├── icons/        # SVG icons components
 │   └── ui/           # Reusable UI components
 ├── lib/
 │   └── utils.ts      # Utility functions
 └── assets/
     ├── fonts/        # Custom fonts
-    └── img/          # Images and shapes
+    └── img/          # Images and background shapes
 ```
 
 ## Contributing
