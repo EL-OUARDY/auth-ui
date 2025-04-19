@@ -1,54 +1,78 @@
-# React + TypeScript + Vite
+# Modern Authentication UI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A sleek and modern authentication interface built with React, TypeScript, and TailwindCSS. The UI features a sliding animation between sign-in and sign-up forms with a dynamic sidebar overlay.
 
-Currently, two official plugins are available:
+![Auth UI Demo](demo.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- 🎨 Modern and responsive design
+- 🔄 Smooth sliding animations using Motion
+- 🔐 Sign in and sign up forms
+- 🎭 Password visibility toggle
+- 🌐 Social media authentication options
+- 📱 Forgot password workflow
+- ✨ Custom UI components
+- 🎯 Fully TypeScript support
+- 🎯 Tailwind CSS for styling
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Tech Stack
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+- React
+- TypeScript
+- Tailwind CSS v4
+- Framer Motion (for animations)
+- Vite
+- Radix UI (for accessible components)
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (v18 or higher)
+
+### Installation
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/EL-OUARDY/auth-ui.git
+cd auth-ui
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+2. Install dependencies:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+```bash
+npm install
 ```
+
+3. Start the development server:
+
+```bash
+npm run dev
+```
+
+4. Open your browser and visit `http://localhost:3000`
+
+## Project Structure
+
+```
+src/
+├── components/
+│   ├── auth/         # Authentication related components
+│   ├── icons/        # SVG icons components
+│   └── ui/           # Reusable UI components
+├── lib/
+│   └── utils.ts      # Utility functions
+└── assets/
+    ├── fonts/        # Custom fonts
+    └── img/          # Images and shapes
+```
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
