@@ -92,7 +92,7 @@ function SignIn({ className }: Props) {
             </button>
             <h2 className="text-primary text-3xl">Forgot Your Password?</h2>
           </div>
-          <div className="">
+          <div className="text-lg">
             Don't worry! Just enter your email address below and we'll send you
             a link to reset your password.
           </div>

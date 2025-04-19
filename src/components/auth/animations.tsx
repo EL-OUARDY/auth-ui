@@ -1,40 +1,16 @@
 import { Variants } from "motion/react";
 
-const ANIMATION_DURATION = 1;
+export const ANIMATION_DURATION = 1.2;
 
-export const containerVariants: Variants = {
+export const formsContainerVariants: Variants = {
   initial: { x: 0 },
   signin: {
     x: 0,
     transition: { duration: ANIMATION_DURATION },
   },
   signup: {
-    x: "-36rem",
+    x: "-18rem",
     transition: { duration: ANIMATION_DURATION },
-  },
-};
-
-export const sidePanelVariants: Variants = {
-  // initial: {},
-  // signin: (w) => ({
-  //   width: [w, w + 101, w],
-  //   transition: { duration: ANIMATION_DURATION },
-  // }),
-  // signup: (w) => ({
-  //   width: [w, w + 100, w],
-  //   transition: { duration: ANIMATION_DURATION },
-  // }),
-};
-
-export const propmtBtnVariants: Variants = {
-  initial: { x: 0 },
-  signin: {
-    x: 0,
-    transition: { duration: ANIMATION_DURATION + 0.2 },
-  },
-  signup: {
-    x: "-100%",
-    transition: { duration: ANIMATION_DURATION + 0.2 },
   },
 };
 
@@ -42,11 +18,11 @@ export const signInVariants: Variants = {
   initial: { x: 0 },
   signin: {
     x: 0,
-    transition: { duration: ANIMATION_DURATION - 0.3, delay: 0.3 },
+    transition: { duration: ANIMATION_DURATION },
   },
   signup: {
     x: "100%",
-    transition: { duration: ANIMATION_DURATION - 0.3 },
+    transition: { duration: ANIMATION_DURATION },
   },
 };
 
@@ -54,22 +30,10 @@ export const signUpVariants: Variants = {
   initial: { x: "-100%" },
   signin: {
     x: "-100%",
-    transition: { duration: ANIMATION_DURATION - 0.3 },
+    transition: { duration: ANIMATION_DURATION },
   },
   signup: {
     x: 0,
-    transition: { duration: ANIMATION_DURATION - 0.3, delay: 0.3 },
-  },
-};
-
-export const bgShapesVariants: Variants = {
-  initial: { x: 0 },
-  signin: {
-    x: 0,
-    transition: { duration: ANIMATION_DURATION + 0.25, ease: "easeInOut" },
-  },
-  signup: {
-    x: "-14%",
-    transition: { duration: ANIMATION_DURATION + 0.25, ease: "easeInOut" },
+    transition: { duration: ANIMATION_DURATION },
   },
 };

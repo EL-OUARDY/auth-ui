@@ -53,10 +53,10 @@
         font-display: swap;
     }
 
-    body {
-        @apply bg-background text-foreground;
+    .sidebar .bg-background {
         background-image: url('./assets/img/shapes/background.svg');
-        background-attachment: fixed;
         background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center 10vh;
     }
 }
