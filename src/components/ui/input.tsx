@@ -35,7 +35,7 @@ const Input = forwardRef<HTMLInputElement, Props>(
           {...props}
           ref={ref}
           className={cn(
-            "ring-ring/20 text-md from-accent to-secondary flex h-10 w-full rounded-md bg-gradient-to-r p-2 px-3 py-2 focus-visible:ring-1 focus-visible:ring-offset-2 focus-visible:outline-none",
+            "ring-ring/20 from-accent to-secondary flex h-10 w-full rounded-md bg-gradient-to-r p-2 px-3 py-2 text-base focus-visible:ring-1 focus-visible:ring-offset-2 focus-visible:outline-none",
             icon && "pl-8",
             className,
           )}

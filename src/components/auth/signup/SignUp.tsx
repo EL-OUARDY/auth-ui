@@ -19,7 +19,7 @@ function SignUp({ className }: Props) {
     <form
       className={cn("sign-up flex flex-col gap-4 px-4 text-center", className)}
     >
-      <h2 className="text-primary text-5xl">Create Account</h2>
+      <h2 className="text-primary text-5xl font-medium">Sign up</h2>
       <div className="social-login text-muted-foreground flex justify-center gap-4 text-center">
         <FacebookIcon className="hover:text-foreground size-8 cursor-pointer rounded-full border p-1" />
         <GoogleIcon className="hover:text-foreground size-8 cursor-pointer rounded-full border p-1" />
@@ -30,6 +30,7 @@ function SignUp({ className }: Props) {
         <Input
           type="text"
           placeholder="Name"
+          className="capitalize"
           icon={<UserIcon className="size-5" />}
         />
         <Input
@@ -44,11 +45,14 @@ function SignUp({ className }: Props) {
         />
       </div>
       <div className="text-muted-foreground flex items-center justify-center gap-1">
-        <Checkbox id="privacy-policy" className="size-3.5 cursor-pointer" />
+        <Checkbox
+          id="privacy-policy"
+          className="mt-[1px] size-3.5 cursor-pointer shadow-none"
+        />
         <label htmlFor="privacy-policy" className="cursor-pointer">
           I agree to the{" "}
           <a className="hover:text-primary hover:underline" href="">
-            Terms and Conditions
+            Terms
           </a>{" "}
           &{" "}
           <a className="hover:text-primary hover:underline" href="">

@@ -19,7 +19,7 @@
 }
 
 @theme inline {
-    --font-sans: 'AgencyFB', sans-serif;
+    --font-sans: 'Alpino', sans-serif;
     --radius-sm: calc(var(--radius) - 4px);
     --radius-md: calc(var(--radius) - 2px);
     --radius-lg: var(--radius);
@@ -45,11 +45,10 @@
     }
 
     @font-face {
-        font-family: 'AgencyFB';
-        src: url('./assets/fonts/Agency-FB.woff2') format('woff2'),
-            url('./assets/fonts/Agency-FB.woff') format('woff');
-        font-weight: normal;
-        font-style: normal;
+        font-family: 'Alpino';
+        src: url('./assets/fonts/Alpino-Variable.woff2') format('woff2'),
+            url('./assets/fonts/Alpino-Variable.woff') format('woff');
+        font-weight: 100 900;
         font-display: swap;
     }
 

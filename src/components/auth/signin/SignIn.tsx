@@ -29,7 +29,7 @@ function SignIn({ className }: Props) {
         className="relative flex items-center"
       >
         <form className="sign-in relative flex min-w-full flex-col gap-4 p-4 text-center">
-          <h2 className="text-primary text-5xl">Sign in</h2>
+          <h2 className="text-primary text-5xl font-medium">Sign in</h2>
           <div className="social-login text-muted-foreground flex justify-center gap-4 text-center">
             <FacebookIcon className="hover:text-foreground size-8 cursor-pointer rounded-full border p-1" />
             <GoogleIcon className="hover:text-foreground size-8 cursor-pointer rounded-full border p-1" />
@@ -48,9 +48,12 @@ function SignIn({ className }: Props) {
               icon={<PasswordIcon className="size-4" />}
             />
           </div>
-          <div className="text-muted-foreground flex items-center justify-between">
+          <div className="text-muted-foreground flex items-center justify-between font-[350]">
             <div className="flex items-center gap-1 hover:underline">
-              <Checkbox id="remember-me" className="size-3.5 cursor-pointer" />
+              <Checkbox
+                id="remember-me"
+                className="mt-[1px] size-3.5 cursor-pointer shadow-none"
+              />
               <label htmlFor="remember-me" className="cursor-pointer">
                 Remember Me
               </label>
@@ -67,7 +70,7 @@ function SignIn({ className }: Props) {
             </div>
           </div>
           <div className="text-center">
-            <Button className="px-8 uppercase">login</Button>
+            <Button className="px-8 font-medium uppercase">login</Button>
           </div>
         </form>
 
@@ -85,18 +88,20 @@ function SignIn({ className }: Props) {
                   activeForm === "signin" ? "forgotPassword" : "signin",
                 );
               }}
-              className="cursor-pointer"
+              className="cursor-pointer font-medium"
               type="button"
             >
               <ArrowLeftIcon className="text-muted-foreground/30 hover:text-muted-foreground/50 size-7" />
             </button>
-            <h2 className="text-primary text-3xl">Forgot Your Password?</h2>
+            <h2 className="text-primary text-3xl font-medium">
+              Forgot Your Password?
+            </h2>
           </div>
-          <div className="text-lg">
+          <div className="text-muted-foreground text-lg">
             Don't worry! Just enter your email address below and we'll send you
-            a link to reset your password.
+            a reset link.
           </div>
-          <div className="flex flex-col gap-2 text-lg">
+          <div className="w-full text-lg">
             <Input
               type="email"
               placeholder="Email"
@@ -105,7 +110,7 @@ function SignIn({ className }: Props) {
           </div>
 
           <div className="text-center">
-            <Button className="px-6">Submit</Button>
+            <Button className="px-6 font-medium uppercase">Submit</Button>
           </div>
         </form>
       </motion.div>

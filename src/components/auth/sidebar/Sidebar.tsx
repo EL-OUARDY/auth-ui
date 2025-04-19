@@ -37,7 +37,7 @@ function Sidebar({ initialForm, activeForm, setActiveForm }: Props) {
         className="absolute flex h-full w-72 flex-col items-center justify-center"
       >
         <Button
-          className="z-101 mt-34 w-2/5 overflow-hidden p-0 uppercase"
+          className="z-101 mt-34 w-2/5 overflow-hidden p-0 font-medium uppercase"
           variant="outline"
           onClick={() => {
             if (!isTransDone) return;
