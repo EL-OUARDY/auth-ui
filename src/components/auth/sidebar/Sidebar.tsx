@@ -1,4 +1,4 @@
-import { Dispatch } from "react";
+import { Dispatch, useState } from "react";
 import { motion } from "motion/react";
 import { anim } from "@/lib/utils";
 import SignInPrompt from "../signin/SignInPrompt";
@@ -24,6 +24,8 @@ interface Props {
 }
 
 function Sidebar({ activeForm, setActiveForm }: Props) {
+  const [isTransDone, setIsTransDone] = useState<boolean>(true);
+
   return (
     <div className="sidebar">
       {/* Button container */}
@@ -36,6 +38,7 @@ function Sidebar({ activeForm, setActiveForm }: Props) {
           className="z-101 mt-34 w-2/5 overflow-hidden p-0 uppercase"
           variant="outline"
           onClick={() => {
+            if (!isTransDone) return;
             setActiveForm(
               activeForm === "signin" || activeForm === ""
                 ? "signup"
@@ -45,6 +48,8 @@ function Sidebar({ activeForm, setActiveForm }: Props) {
         >
           <motion.div
             {...anim(activeForm, propmtBtnVariants)}
+            onAnimationStart={() => setIsTransDone(false)}
+            onAnimationComplete={() => setIsTransDone(true)}
             className="flex w-full"
           >
             <div className="min-w-full">Sign up</div>
@@ -74,7 +79,7 @@ function Sidebar({ activeForm, setActiveForm }: Props) {
         >
           <img
             src={BagShape}
-            className="absolute -top-6 -right-24 size-56 -rotate-[31deg]"
+            className="absolute -top-6 -right-16 size-42 -rotate-[31deg]"
           />
           <img
             src={BagsShape}
@@ -82,11 +87,11 @@ function Sidebar({ activeForm, setActiveForm }: Props) {
           />
           <img
             src={phoneShape}
-            className="absolute top-22 left-124 size-32 rotate-[42deg]"
+            className="absolute top-26 left-124 size-30 rotate-[42deg]"
           />
           <img
             src={hatShape}
-            className="absolute top-80 left-118 size-16 -rotate-[31deg] opacity-40"
+            className="absolute top-72 left-110 size-16 -rotate-[31deg] opacity-40"
           />
           <img
             src={shirtShape}
