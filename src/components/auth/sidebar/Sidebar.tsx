@@ -19,11 +19,12 @@ import { FormType } from "../Auth";
 import Button from "@/components/ui/button";
 
 interface Props {
+  initialForm: "signin" | "signup";
   activeForm: FormType;
   setActiveForm: Dispatch<React.SetStateAction<FormType>>;
 }
 
-function Sidebar({ activeForm, setActiveForm }: Props) {
+function Sidebar({ initialForm, activeForm, setActiveForm }: Props) {
   const [isTransDone, setIsTransDone] = useState<boolean>(true);
 
   return (
@@ -31,6 +32,7 @@ function Sidebar({ activeForm, setActiveForm }: Props) {
       {/* Button container */}
       <motion.div
         {...anim(activeForm, btnContainerVariants)}
+        custom={initialForm}
         transition={transitionConfig}
         className="absolute flex h-full w-72 flex-col items-center justify-center"
       >
@@ -40,14 +42,14 @@ function Sidebar({ activeForm, setActiveForm }: Props) {
           onClick={() => {
             if (!isTransDone) return;
             setActiveForm(
-              activeForm === "signin" || activeForm === ""
-                ? "signup"
-                : "signin",
+              (activeForm || initialForm) === "signin" ? "signup" : "signin",
             );
           }}
         >
+          {/* Button texts */}
           <motion.div
             {...anim(activeForm, propmtBtnVariants)}
+            custom={initialForm}
             onAnimationStart={() => setIsTransDone(false)}
             onAnimationComplete={() => setIsTransDone(true)}
             className="flex w-full"
@@ -61,10 +63,11 @@ function Sidebar({ activeForm, setActiveForm }: Props) {
       {/* Mask  */}
       <motion.div
         {...anim(activeForm, maskVariants)}
+        custom={initialForm}
         transition={transitionConfig}
         className="bg-background absolute inset-0 z-100"
       >
-        {/* Panel texts */}
+        {/* Sidebar texts */}
         <div className="absolute left-0 z-2 flex h-full w-1/3 items-center px-8">
           <SignInPrompt />
         </div>
@@ -75,11 +78,12 @@ function Sidebar({ activeForm, setActiveForm }: Props) {
         {/* Shapes */}
         <motion.div
           {...anim(activeForm, bgShapesVariants)}
+          custom={initialForm}
           className="bg-shapes relative z-1 size-full"
         >
           <img
             src={BagShape}
-            className="absolute -top-6 -right-16 size-42 -rotate-[31deg]"
+            className="absolute -top-5 -right-16 size-42 -rotate-[31deg]"
           />
           <img
             src={BagsShape}
@@ -87,7 +91,7 @@ function Sidebar({ activeForm, setActiveForm }: Props) {
           />
           <img
             src={phoneShape}
-            className="absolute top-26 left-124 size-30 rotate-[42deg]"
+            className="absolute top-24 left-122 size-30 rotate-[42deg]"
           />
           <img
             src={hatShape}

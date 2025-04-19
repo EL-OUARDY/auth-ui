@@ -1,19 +1,26 @@
 import { Transition, Variants } from "motion/react";
 import { ANIMATION_DURATION } from "../animations";
+import { FormType } from "../Auth";
 
 const maskWidthPercentage = (1 / 3) * 100;
 
 export const transitionConfig: Transition = {
   duration: ANIMATION_DURATION,
   ease: [0.39, 0.24, 0.3, 1],
-  times: [0.1, 0.8, 1],
+  times: [0.1, 0.75, 1],
 };
 
 export const maskVariants: Variants = {
-  initial: {
-    clipPath: `polygon(${
-      100 - maskWidthPercentage
-    }% 0%, 100% 0%, 100% 100%, ${100 - maskWidthPercentage}% 100%)`,
+  initial: (initialForm: FormType) => {
+    if (initialForm === "signin")
+      return {
+        clipPath: `polygon(${
+          100 - maskWidthPercentage
+        }% 0%, 100% 0%, 100% 100%, ${100 - maskWidthPercentage}% 100%)`,
+      };
+    return {
+      clipPath: `polygon(0% 0%, ${maskWidthPercentage}% 0%, ${maskWidthPercentage}% 100%, 0% 100%)`,
+    };
   },
   signin: {
     clipPath: [
@@ -38,8 +45,14 @@ export const maskVariants: Variants = {
 };
 
 export const btnContainerVariants: Variants = {
-  initial: {
-    right: 0,
+  initial: (initialForm: FormType) => {
+    if (initialForm === "signin")
+      return {
+        right: 0,
+      };
+    return {
+      right: `${(2 / 3) * 100}%`,
+    };
   },
   signin: {
     right: 0,
@@ -58,7 +71,15 @@ export const btnContainerVariants: Variants = {
 };
 
 export const propmtBtnVariants: Variants = {
-  initial: { x: 0 },
+  initial: (initialForm: FormType) => {
+    if (initialForm === "signin")
+      return {
+        x: 0,
+      };
+    return {
+      x: "-100%",
+    };
+  },
   signin: {
     x: 0,
     transition: { duration: ANIMATION_DURATION },
@@ -70,7 +91,15 @@ export const propmtBtnVariants: Variants = {
 };
 
 export const bgShapesVariants: Variants = {
-  initial: { x: 0 },
+  initial: (initialForm: FormType) => {
+    if (initialForm === "signin")
+      return {
+        x: 0,
+      };
+    return {
+      x: "-14%",
+    };
+  },
   signin: {
     x: 0,
     transition: { duration: ANIMATION_DURATION, ease: "easeInOut" },

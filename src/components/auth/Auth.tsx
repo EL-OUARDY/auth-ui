@@ -12,24 +12,48 @@ import SignIn from "./signin/SignIn";
 
 export type FormType = "signin" | "signup" | "";
 
-function Auth() {
+interface Props {
+  initialForm?: "signin" | "signup";
+}
+
+/**
+ * Authentication component that provides a sliding
+ * interface between Sign In and Sign Up forms
+ *
+ * @component
+ *
+ * @example
+ * return (
+ *   <Auth initialForm="signin" />
+ * )
+ *
+ * @param {("signin"|"signup")} [props.initialForm="signin"] - The initial form to display when the component is rendered.
+ * @returns {JSX.Element}
+ */
+function Auth({ initialForm = "signin" }: Props) {
   const [activeForm, setActiveForm] = useState<FormType>("");
 
   return (
     <div className="page-wrapper bg-background text-foreground selection:bg-primary-background flex h-screen items-center justify-center font-sans select-none selection:text-white">
       <div className="relative h-148 w-216 overflow-hidden shadow-md">
         {/* Sidebar - animated overlay */}
-        <Sidebar activeForm={activeForm} setActiveForm={setActiveForm} />
+        <Sidebar
+          initialForm={initialForm}
+          activeForm={activeForm}
+          setActiveForm={setActiveForm}
+        />
 
         {/* Forms */}
         <motion.div
           {...anim(activeForm, formsContainerVariants)}
+          custom={initialForm}
           className="absolute flex h-full w-fit"
         >
           {/* Sign in */}
           <div className="flex w-144 items-center justify-center overflow-hidden bg-white">
             <motion.div
               {...anim(activeForm, signInVariants)}
+              custom={initialForm}
               className="flex w-full items-center justify-center px-8"
             >
               <div className="w-88">
@@ -42,6 +66,7 @@ function Auth() {
           <div className="flex w-144 items-center justify-center overflow-hidden bg-white">
             <motion.div
               {...anim(activeForm, signUpVariants)}
+              custom={initialForm}
               className="flex w-full items-center justify-center px-8"
             >
               <div className="w-88">

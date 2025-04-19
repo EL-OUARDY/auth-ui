@@ -1,7 +1,7 @@
 import Auth from "./components/auth/Auth";
 
 function App() {
-  return <Auth />;
+  return <Auth initialForm="signin" />;
 }
 
 export default App;
