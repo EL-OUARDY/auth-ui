@@ -23,9 +23,9 @@ function SignIn({ className }: Props) {
     <div className={cn("overflow-hidden", className)}>
       <motion.div
         {...anim(activeForm, variants)}
-        className="relative flex items-center"
+        className="relative flex items-center lg:gap-4 lg:p-4"
       >
-        <form className="sign-in relative flex min-w-full flex-col gap-4 p-4 text-center">
+        <form className="sign-in relative flex w-full flex-shrink-0 flex-col gap-4 px-4 text-center lg:min-w-full lg:px-0">
           <h2 className="text-primary text-5xl font-medium">Sign in</h2>
           <div className="social-login text-muted-foreground flex justify-center gap-4 text-center">
             <SocialAuth />
@@ -71,7 +71,7 @@ function SignIn({ className }: Props) {
         {/* Forgot password */}
         <form
           className={cn(
-            "forgot-password relative flex min-w-full flex-col gap-4 p-4 text-center",
+            "forgot-password relative flex w-full min-w-full flex-shrink-0 flex-col gap-4 px-4 text-center lg:ml-4 lg:px-0",
             className,
           )}
         >

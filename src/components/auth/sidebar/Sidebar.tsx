@@ -28,11 +28,10 @@ function Sidebar({ initialForm, activeForm, setActiveForm }: Props) {
   const [isTransDone, setIsTransDone] = useState<boolean>(true);
 
   return (
-    <div className="sidebar">
+    <div className="sidebar hidden lg:block">
       {/* Button container */}
       <motion.div
-        {...anim(activeForm, btnContainerVariants)}
-        custom={initialForm}
+        {...anim(activeForm, btnContainerVariants, initialForm)}
         transition={transitionConfig}
         className="absolute flex h-full w-72 flex-col items-center justify-center"
       >
@@ -48,8 +47,7 @@ function Sidebar({ initialForm, activeForm, setActiveForm }: Props) {
         >
           {/* Button texts */}
           <motion.div
-            {...anim(activeForm, propmtBtnVariants)}
-            custom={initialForm}
+            {...anim(activeForm, propmtBtnVariants, initialForm)}
             onAnimationStart={() => setIsTransDone(false)}
             onAnimationComplete={() => setIsTransDone(true)}
             className="flex w-full"
@@ -62,8 +60,7 @@ function Sidebar({ initialForm, activeForm, setActiveForm }: Props) {
 
       {/* Mask  */}
       <motion.div
-        {...anim(activeForm, maskVariants)}
-        custom={initialForm}
+        {...anim(activeForm, maskVariants, initialForm)}
         transition={transitionConfig}
         className="bg-background absolute inset-0 z-100"
       >
@@ -77,8 +74,7 @@ function Sidebar({ initialForm, activeForm, setActiveForm }: Props) {
 
         {/* Shapes */}
         <motion.div
-          {...anim(activeForm, bgShapesVariants)}
-          custom={initialForm}
+          {...anim(activeForm, bgShapesVariants, initialForm)}
           className="bg-shapes relative z-1 size-full"
         >
           <img

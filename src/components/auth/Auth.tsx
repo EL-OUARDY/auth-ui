@@ -9,6 +9,7 @@ import {
 } from "./animations";
 import SignUp from "./signup/SignUp";
 import SignIn from "./signin/SignIn";
+import useMediaQuery from "@/hooks/useMediaQuery";
 
 export type FormType = "signin" | "signup" | "";
 
@@ -32,10 +33,24 @@ interface Props {
  */
 function Auth({ initialForm = "signin" }: Props) {
   const [activeForm, setActiveForm] = useState<FormType>("");
+  const isDesktop = useMediaQuery("(min-width: 1024px)", true);
 
   return (
-    <div className="page-wrapper bg-background text-foreground selection:bg-primary-background flex h-screen items-center justify-center font-sans select-none selection:text-white">
-      <div className="relative h-148 w-216 overflow-hidden shadow-md">
+    <div className="page-wrapper lg:bg-background text-foreground selection:bg-primary-background flex h-screen items-center justify-center bg-white font-sans select-none selection:text-white lg:p-0">
+      <div className="relative h-screen w-full overflow-hidden lg:h-148 lg:w-216 lg:shadow-md">
+        <button
+          className="absolute top-4 right-4 z-1000 text-4xl italic"
+          onClick={() => {
+            setActiveForm(
+              (activeForm || initialForm) === "signin" ? "signup" : "signin",
+            );
+          }}
+        >
+          {activeForm || "Click"}
+        </button>
+        <label className="absolute top-4 left-4 z-1000 text-4xl italic">
+          {isDesktop ? "YES" : "NO"}
+        </label>
         {/* Sidebar - animated overlay */}
         <Sidebar
           initialForm={initialForm}
@@ -45,31 +60,31 @@ function Auth({ initialForm = "signin" }: Props) {
 
         {/* Forms */}
         <motion.div
-          {...anim(activeForm, formsContainerVariants)}
-          custom={initialForm}
-          className="absolute flex h-full w-fit"
+          {...anim(activeForm, formsContainerVariants, {
+            initialForm,
+            width: isDesktop ? "18rem" : "100%",
+          })}
+          className="absolute flex h-full w-full lg:w-fit"
         >
           {/* Sign in */}
-          <div className="flex w-144 items-center justify-center overflow-hidden bg-white">
+          <div className="flex w-full flex-shrink-0 items-center justify-center overflow-hidden bg-white p-4 lg:w-144">
             <motion.div
-              {...anim(activeForm, signInVariants)}
-              custom={initialForm}
-              className="flex w-full items-center justify-center px-8"
+              {...anim(activeForm, signInVariants, initialForm)}
+              className="flex w-full items-center justify-center lg:px-8"
             >
-              <div className="w-88">
+              <div className="w-full max-w-sm lg:w-88">
                 <SignIn />
               </div>
             </motion.div>
           </div>
 
           {/* Sign up */}
-          <div className="flex w-144 items-center justify-center overflow-hidden bg-white">
+          <div className="flex w-full flex-shrink-0 items-center justify-center overflow-hidden bg-white p-4 lg:w-144">
             <motion.div
-              {...anim(activeForm, signUpVariants)}
-              custom={initialForm}
-              className="flex w-full items-center justify-center px-8"
+              {...anim(activeForm, signUpVariants, initialForm)}
+              className="flex w-full items-center justify-center lg:px-8"
             >
-              <div className="w-88">
+              <div className="w-full max-w-sm lg:w-88">
                 <SignUp />
               </div>
             </motion.div>
