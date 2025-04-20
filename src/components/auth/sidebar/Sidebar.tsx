@@ -11,12 +11,14 @@ import shirtShape from "@/assets/img/shapes/shirt.svg";
 import {
   bgShapesVariants,
   btnContainerVariants,
-  maskVariants,
+  desktopMaskVariants,
+  mobileMaskVariants,
   propmtBtnVariants,
   transitionConfig,
 } from "./animations";
 import { FormType } from "../Auth";
 import Button from "@/components/ui/button";
+import useMediaQuery from "@/hooks/useMediaQuery";
 
 interface Props {
   initialForm: "signin" | "signup";
@@ -26,14 +28,15 @@ interface Props {
 
 function Sidebar({ initialForm, activeForm, setActiveForm }: Props) {
   const [isTransDone, setIsTransDone] = useState<boolean>(true);
+  const isDesktop = useMediaQuery("(min-width: 1024px)", true);
 
   return (
-    <div className="sidebar hidden lg:block">
+    <div className="sidebar">
       {/* Button container */}
       <motion.div
         {...anim(activeForm, btnContainerVariants, initialForm)}
         transition={transitionConfig}
-        className="absolute flex h-full w-72 flex-col items-center justify-center"
+        className="absolute hidden h-full w-72 flex-col items-center justify-center lg:flex"
       >
         <Button
           className="z-101 mt-34 w-2/5 overflow-hidden p-0 font-medium uppercase"
@@ -60,21 +63,28 @@ function Sidebar({ initialForm, activeForm, setActiveForm }: Props) {
 
       {/* Mask  */}
       <motion.div
-        {...anim(activeForm, maskVariants, initialForm)}
+        {...anim(
+          activeForm,
+          isDesktop ? desktopMaskVariants : mobileMaskVariants,
+          {
+            initialForm,
+            maskWidthPercentage: (1 / 3) * 100,
+          },
+        )}
         transition={transitionConfig}
         className="bg-background absolute inset-0 z-100"
       >
         {/* Sidebar texts */}
-        <div className="absolute left-0 z-2 flex h-full w-1/3 items-center px-8">
+        <div className="absolute left-0 z-2 hidden h-full w-1/3 items-center px-8 lg:flex">
           <SignInPrompt />
         </div>
-        <div className="absolute right-0 z-2 flex h-full w-1/3 items-center px-8">
+        <div className="absolute right-0 z-2 hidden h-full w-1/3 items-center px-8 lg:flex">
           <SignUpPrompt />
         </div>
 
         {/* Shapes */}
         <motion.div
-          {...anim(activeForm, bgShapesVariants, initialForm)}
+          {...anim(activeForm, bgShapesVariants, { initialForm, isDesktop })}
           className="bg-shapes relative z-1 size-full"
         >
           <img
@@ -83,15 +93,15 @@ function Sidebar({ initialForm, activeForm, setActiveForm }: Props) {
           />
           <img
             src={BagsShape}
-            className="absolute top-2 left-76 size-24 rotate-[23deg]"
+            className="absolute top-40 left-30 size-20 rotate-[23deg] lg:top-2 lg:left-76 lg:size-24"
           />
           <img
             src={phoneShape}
-            className="absolute top-24 left-122 size-30 rotate-[42deg]"
+            className="absolute top-24 left-132 hidden size-30 rotate-[42deg] md:block lg:left-122"
           />
           <img
             src={hatShape}
-            className="absolute top-72 left-110 size-16 -rotate-[31deg] opacity-40"
+            className="absolute top-72 left-186 size-16 -rotate-[31deg] opacity-40 lg:left-110"
           />
           <img
             src={shirtShape}

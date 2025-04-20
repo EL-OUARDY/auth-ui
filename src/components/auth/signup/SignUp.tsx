@@ -16,7 +16,7 @@ function SignUp({ className }: Props) {
     <form
       className={cn("sign-up flex flex-col gap-4 px-4 text-center", className)}
     >
-      <h2 className="text-primary text-5xl font-medium">Get Started</h2>
+      <h2 className="text-primary text-5xl font-medium">New Account</h2>
       <div className="social-login text-muted-foreground flex justify-center gap-4 text-center">
         <SocialAuth />
       </div>

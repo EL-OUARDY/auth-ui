@@ -1,8 +1,7 @@
 import { Transition, Variants } from "motion/react";
 import { ANIMATION_DURATION } from "../animations";
 import { FormType } from "../Auth";
-
-const maskWidthPercentage = (1 / 3) * 100;
+import { easeInOut } from "motion";
 
 export const transitionConfig: Transition = {
   duration: ANIMATION_DURATION,
@@ -10,8 +9,8 @@ export const transitionConfig: Transition = {
   times: [0.1, 0.75, 1],
 };
 
-export const maskVariants: Variants = {
-  initial: (initialForm: FormType) => {
+export const desktopMaskVariants: Variants = {
+  initial: ({ initialForm, maskWidthPercentage }) => {
     if (initialForm === "signin")
       return {
         clipPath: `polygon(${
@@ -22,7 +21,7 @@ export const maskVariants: Variants = {
       clipPath: `polygon(0% 0%, ${maskWidthPercentage}% 0%, ${maskWidthPercentage}% 100%, 0% 100%)`,
     };
   },
-  signin: {
+  signin: ({ maskWidthPercentage }) => ({
     clipPath: [
       `polygon(0% 0%, ${maskWidthPercentage + 15}% 0%, ${maskWidthPercentage + 15}% 100%, 0% 100%)`,
       `polygon(${
@@ -32,8 +31,8 @@ export const maskVariants: Variants = {
         100 - maskWidthPercentage
       }% 0%, 100% 0%, 100% 100%, ${100 - maskWidthPercentage}% 100%)`,
     ],
-  },
-  signup: {
+  }),
+  signup: ({ maskWidthPercentage }) => ({
     clipPath: [
       `polygon(${
         100 - maskWidthPercentage - 15
@@ -41,6 +40,40 @@ export const maskVariants: Variants = {
       `polygon(0% 0%, ${maskWidthPercentage + 15}% 0%, ${maskWidthPercentage + 15}% 100%, 0% 100%)`,
       `polygon(0% 0%, ${maskWidthPercentage}% 0%, ${maskWidthPercentage}% 100%, 0% 100%)`,
     ],
+  }),
+};
+
+export const mobileMaskVariants: Variants = {
+  initial: (initialForm: FormType) => {
+    if (initialForm === "signin")
+      return {
+        clipPath: `polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)`,
+      };
+    return {
+      clipPath: `polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)`,
+    };
+  },
+  signin: {
+    clipPath: [
+      `polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)`,
+      `polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)`,
+      `polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)`,
+    ],
+    transition: {
+      duration: ANIMATION_DURATION,
+      ease: easeInOut,
+    },
+  },
+  signup: {
+    clipPath: [
+      `polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)`,
+      `polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)`,
+      `polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)`,
+    ],
+    transition: {
+      duration: ANIMATION_DURATION,
+      ease: easeInOut,
+    },
   },
 };
 
@@ -58,14 +91,14 @@ export const btnContainerVariants: Variants = {
     right: 0,
     transition: {
       ...transitionConfig,
-      duration: ANIMATION_DURATION - 0.1,
+      duration: ANIMATION_DURATION - 0.15,
     },
   },
   signup: {
     right: `${(2 / 3) * 100}%`,
     transition: {
       ...transitionConfig,
-      duration: ANIMATION_DURATION - 0.1,
+      duration: ANIMATION_DURATION - 0.15,
     },
   },
 };
@@ -91,21 +124,21 @@ export const propmtBtnVariants: Variants = {
 };
 
 export const bgShapesVariants: Variants = {
-  initial: (initialForm: FormType) => {
+  initial: ({ initialForm, isDesktop }) => {
     if (initialForm === "signin")
       return {
-        x: 0,
+        x: isDesktop ? 0 : "-14%",
       };
     return {
-      x: "-14%",
+      x: isDesktop ? "-14%" : 0,
     };
   },
-  signin: {
-    x: 0,
+  signin: ({ isDesktop }) => ({
+    x: isDesktop ? 0 : "-14%",
     transition: { duration: ANIMATION_DURATION + 0.1, ease: "easeInOut" },
-  },
-  signup: {
-    x: "-14%",
+  }),
+  signup: ({ isDesktop }) => ({
+    x: isDesktop ? "-14%" : 0,
     transition: { duration: ANIMATION_DURATION + 0.1, ease: "easeInOut" },
-  },
+  }),
 };
