@@ -1,9 +1,5 @@
 import { Checkbox } from "../../ui/checkbox";
 import Input from "../../ui/input";
-import GoogleIcon from "../../icons/google";
-import FacebookIcon from "../../icons/facebook";
-import XIcon from "../../icons/x";
-import AppleIcon from "../../icons/apple";
 import Button from "../../ui/button";
 import EnvelopeIcon from "../../icons/envelope";
 import PasswordIcon from "../../icons/password";
@@ -12,6 +8,7 @@ import { useState } from "react";
 import { motion } from "motion/react";
 import ArrowLeftIcon from "../../icons/arrowLeft";
 import { variants } from "./animations";
+import SocialAuth from "@/components/ui/SocialAuth";
 
 interface Props {
   className?: string;
@@ -31,10 +28,7 @@ function SignIn({ className }: Props) {
         <form className="sign-in relative flex min-w-full flex-col gap-4 p-4 text-center">
           <h2 className="text-primary text-5xl font-medium">Sign in</h2>
           <div className="social-login text-muted-foreground flex justify-center gap-4 text-center">
-            <FacebookIcon className="hover:text-foreground size-8 cursor-pointer rounded-full border p-1" />
-            <GoogleIcon className="hover:text-foreground size-8 cursor-pointer rounded-full border p-1" />
-            <XIcon className="hover:text-foreground size-8 cursor-pointer rounded-full border p-1" />
-            <AppleIcon className="hover:text-foreground size-8 cursor-pointer rounded-full border p-1" />
+            <SocialAuth />
           </div>
           <div className="flex flex-col gap-2 text-lg">
             <Input

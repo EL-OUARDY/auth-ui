@@ -102,10 +102,10 @@ export const bgShapesVariants: Variants = {
   },
   signin: {
     x: 0,
-    transition: { duration: ANIMATION_DURATION, ease: "easeInOut" },
+    transition: { duration: ANIMATION_DURATION + 0.1, ease: "easeInOut" },
   },
   signup: {
     x: "-14%",
-    transition: { duration: ANIMATION_DURATION, ease: "easeInOut" },
+    transition: { duration: ANIMATION_DURATION + 0.1, ease: "easeInOut" },
   },
 };

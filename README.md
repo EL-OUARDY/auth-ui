@@ -1,6 +1,7 @@
 # Authentication UI
 
 A sleek and modern authentication interface built with React, TypeScript, and TailwindCSS. The UI features a sliding animation between sign-in and sign-up forms with a dynamic sidebar overlay.
+Check it out live: [View Demo](https://auth-ui-zeta.vercel.app/) 🚀
 
 ![Auth UI Demo](demo.gif)
 
