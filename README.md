@@ -16,6 +16,12 @@ Check it out live: [View Demo](https://auth-ui-zeta.vercel.app/) 🚀
 - 🎯 Fully TypeScript support
 - 🎯 Tailwind CSS for styling
 
+## Performance Insights
+
+This project is optimized for performance and accessibility. Below is a Lighthouse report showcasing the application's excellent scores in key areas such as performance, accessibility, best practices, and SEO.
+
+![Lighthouse Report](lighthouse.svg)
+
 ## Tech Stack
 
 - React 19
