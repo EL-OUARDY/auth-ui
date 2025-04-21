@@ -32,6 +32,6 @@ const Button = forwardRef<HTMLButtonElement, Props>(
 );
 
 // Create a motion version of the Button component
-export const MotionButton = motion(Button);
+export const MotionButton = motion.create(Button);
 
 export default Button;

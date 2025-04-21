@@ -4,25 +4,27 @@ import Button from "../../ui/button";
 import EnvelopeIcon from "../../icons/envelope";
 import PasswordIcon from "../../icons/password";
 import { anim, cn } from "@/lib/utils";
-import { useState } from "react";
+import { Dispatch, useState } from "react";
 import { motion } from "motion/react";
 import ArrowLeftIcon from "../../icons/arrowLeft";
 import { variants } from "./animations";
 import SocialAuth from "@/components/ui/SocialAuth";
+import { FormType } from "../Auth";
 
 interface Props {
   className?: string;
+  setActiveForm: Dispatch<React.SetStateAction<FormType>>;
 }
 
-type FormType = "signin" | "forgotPassword";
+type CurrentView = "signin" | "forgotPassword";
 
-function SignIn({ className }: Props) {
-  const [activeForm, setActiveForm] = useState<FormType>("signin");
+function SignIn({ className, setActiveForm }: Props) {
+  const [currentView, setCurrentView] = useState<CurrentView>("signin");
 
   return (
     <div className={cn("overflow-hidden", className)}>
       <motion.div
-        {...anim(activeForm, variants)}
+        {...anim(currentView, variants)}
         className="relative flex items-center lg:gap-4 lg:p-4"
       >
         <form className="sign-in relative flex w-full flex-shrink-0 flex-col gap-4 px-4 text-center lg:min-w-full lg:px-0">
@@ -56,8 +58,8 @@ function SignIn({ className }: Props) {
             </div>
             <div
               onClick={() => {
-                setActiveForm(
-                  activeForm === "signin" ? "forgotPassword" : "signin",
+                setCurrentView(
+                  currentView === "signin" ? "forgotPassword" : "signin",
                 );
               }}
               className="cursor-pointer hover:underline"
@@ -69,6 +71,23 @@ function SignIn({ className }: Props) {
             <Button className="px-8 font-medium uppercase" aria-label="Sign in">
               Sign in
             </Button>
+          </div>
+
+          {/* Sign up prompt */}
+          <div className="after:border-border relative mt-4 mb-2 text-center text-base after:absolute after:inset-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t lg:hidden">
+            <span className="bg-background text-muted-foreground relative z-10 rounded-md p-2 px-4">
+              Don’t have an account?{" "}
+              <button
+                onClick={(e) => {
+                  e.preventDefault();
+                  setActiveForm("signup");
+                }}
+                className="text-primary cursor-pointer font-semibold"
+                aria-label="Create Account"
+              >
+                Sign up
+              </button>
+            </span>
           </div>
         </form>
 
@@ -82,8 +101,8 @@ function SignIn({ className }: Props) {
           <div className="flex items-center justify-center space-x-2">
             <button
               onClick={() => {
-                setActiveForm(
-                  activeForm === "signin" ? "forgotPassword" : "signin",
+                setCurrentView(
+                  currentView === "signin" ? "forgotPassword" : "signin",
                 );
               }}
               className="cursor-pointer font-medium"

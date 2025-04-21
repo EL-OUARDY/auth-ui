@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Sidebar from "./sidebar/Sidebar";
 import { motion } from "motion/react";
 import { anim } from "@/lib/utils";
@@ -38,17 +38,16 @@ function Auth({ initialForm = "signin" }: Props) {
   const [activeForm, setActiveForm] = useState<FormType>("");
   const isDesktop = useMediaQuery("(min-width: 1024px)", true);
 
+  useEffect(() => {
+    setActiveForm("");
+  }, [isDesktop]);
+
   return (
     <div className="page-wrapper lg:bg-background text-foreground selection:bg-primary-background flex h-screen items-center justify-center bg-white font-sans select-none selection:text-white lg:p-0">
       <div
-        onClick={() =>
-          setActiveForm(activeForm === "signup" ? "signin" : "signup")
-        }
-        className="absolute top-4 right-4 cursor-pointer text-2xl"
+        className="relative h-screen w-full overflow-hidden lg:h-148 lg:w-216 lg:shadow-md"
+        key={isDesktop ? "desktop" : "mobile"}
       >
-        {activeForm || "click"}
-      </div>
-      <div className="relative h-screen w-full overflow-hidden lg:h-148 lg:w-216 lg:shadow-md">
         {/* Sidebar - animated overlay */}
         <Sidebar
           initialForm={initialForm}
@@ -80,7 +79,7 @@ function Auth({ initialForm = "signin" }: Props) {
               className="flex w-full items-center justify-center lg:px-8"
             >
               <div className="w-full max-w-sm lg:w-88">
-                <SignIn />
+                <SignIn setActiveForm={setActiveForm} />
               </div>
             </motion.div>
           </div>
@@ -96,7 +95,7 @@ function Auth({ initialForm = "signin" }: Props) {
               className="flex w-full items-center justify-center lg:px-8"
             >
               <div className="w-full max-w-sm lg:w-88">
-                <SignUp />
+                <SignUp setActiveForm={setActiveForm} />
               </div>
             </motion.div>
           </div>

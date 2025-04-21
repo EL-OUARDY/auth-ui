@@ -6,12 +6,15 @@ import Button from "@/components/ui/button";
 import UserIcon from "@/components/icons/user";
 import { Checkbox } from "@/components/ui/checkbox";
 import SocialAuth from "@/components/ui/SocialAuth";
+import { Dispatch } from "react";
+import { FormType } from "../Auth";
 
 interface Props {
   className?: string;
+  setActiveForm: Dispatch<React.SetStateAction<FormType>>;
 }
 
-function SignUp({ className }: Props) {
+function SignUp({ className, setActiveForm }: Props) {
   return (
     <form
       className={cn("sign-up flex flex-col gap-4 px-4 text-center", className)}
@@ -48,7 +51,7 @@ function SignUp({ className }: Props) {
         <label htmlFor="privacy-policy" className="cursor-pointer">
           I agree to the{" "}
           <a className="hover:text-primary hover:underline" href="">
-            Terms
+            Terms of Service
           </a>{" "}
           &{" "}
           <a className="hover:text-primary hover:underline" href="">
@@ -62,6 +65,23 @@ function SignUp({ className }: Props) {
         <Button aria-label="Sign up" className="px-8 font-medium uppercase">
           Sign up
         </Button>
+      </div>
+
+      {/* Sign up prompt */}
+      <div className="after:border-border relative mt-4 mb-2 text-center text-base after:absolute after:inset-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t lg:hidden">
+        <span className="bg-background text-muted-foreground relative z-10 rounded-md p-2 px-4">
+          Already have an account?{" "}
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              setActiveForm("signin");
+            }}
+            className="text-primary cursor-pointer font-semibold"
+            aria-label="Sign in"
+          >
+            Sign in
+          </button>
+        </span>
       </div>
     </form>
   );
