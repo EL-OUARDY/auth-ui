@@ -40,6 +40,14 @@ function Auth({ initialForm = "signin" }: Props) {
 
   return (
     <div className="page-wrapper lg:bg-background text-foreground selection:bg-primary-background flex h-screen items-center justify-center bg-white font-sans select-none selection:text-white lg:p-0">
+      <div
+        onClick={() =>
+          setActiveForm(activeForm === "signup" ? "signin" : "signup")
+        }
+        className="absolute top-4 right-4 cursor-pointer text-2xl"
+      >
+        {activeForm || "click"}
+      </div>
       <div className="relative h-screen w-full overflow-hidden lg:h-148 lg:w-216 lg:shadow-md">
         {/* Sidebar - animated overlay */}
         <Sidebar

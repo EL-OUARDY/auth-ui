@@ -103,7 +103,18 @@ export const btnContainerVariants: Variants = {
   },
 };
 
-export const propmtBtnVariants: Variants = {
+export const sidebarBtnVariants: Variants = {
+  signin: {
+    scaleX: [1, 1.4, 1],
+    transition: { duration: ANIMATION_DURATION - 0.4, times: [0, 0.5, 1] },
+  },
+  signup: {
+    scaleX: [1, 1.41, 1],
+    transition: { duration: ANIMATION_DURATION - 0.4, times: [0, 0.5, 1] },
+  },
+};
+
+export const sidebarBtnTextsVariants: Variants = {
   initial: (initialForm: FormType) => {
     if (initialForm === "signin")
       return {

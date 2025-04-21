@@ -13,12 +13,13 @@ import {
   btnContainerVariants,
   desktopMaskVariants,
   mobileMaskVariants,
-  propmtBtnVariants,
+  sidebarBtnTextsVariants,
+  sidebarBtnVariants,
   transitionConfig,
 } from "./animations";
 import { FormType } from "../Auth";
-import Button from "@/components/ui/button";
 import useMediaQuery from "@/hooks/useMediaQuery";
+import { MotionButton } from "@/components/ui/button";
 
 interface Props {
   initialForm: "signin" | "signup";
@@ -38,8 +39,9 @@ function Sidebar({ initialForm, activeForm, setActiveForm }: Props) {
         transition={transitionConfig}
         className="absolute hidden h-full w-72 flex-col items-center justify-center lg:flex"
       >
-        <Button
-          className="z-101 mt-34 w-2/5 overflow-hidden p-0 font-medium uppercase"
+        <MotionButton
+          {...anim(activeForm, sidebarBtnVariants)}
+          className="z-101 mt-36 w-2/5 overflow-hidden p-0 font-medium uppercase"
           variant="outline"
           onClick={() => {
             if (!isTransDone) return;
@@ -51,7 +53,7 @@ function Sidebar({ initialForm, activeForm, setActiveForm }: Props) {
         >
           {/* Button texts */}
           <motion.div
-            {...anim(activeForm, propmtBtnVariants, initialForm)}
+            {...anim(activeForm, sidebarBtnTextsVariants, initialForm)}
             onAnimationStart={() => setIsTransDone(false)}
             onAnimationComplete={() => setIsTransDone(true)}
             className="flex w-full"
@@ -59,7 +61,7 @@ function Sidebar({ initialForm, activeForm, setActiveForm }: Props) {
             <div className="min-w-full">Sign up</div>
             <div className="min-w-full">Sign in</div>
           </motion.div>
-        </Button>
+        </MotionButton>
       </motion.div>
 
       {/* Mask  */}

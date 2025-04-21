@@ -67,7 +67,7 @@ function SignIn({ className }: Props) {
           </div>
           <div className="text-center">
             <Button className="px-8 font-medium uppercase" aria-label="Sign in">
-              login
+              Sign in
             </Button>
           </div>
         </form>

@@ -17,7 +17,7 @@ function SignUp({ className }: Props) {
       className={cn("sign-up flex flex-col gap-4 px-4 text-center", className)}
     >
       <h2 className="text-primary text-5xl font-medium tracking-tighter">
-        Create Account
+        Sign up
       </h2>
       <div className="social-login text-muted-foreground flex justify-center gap-4 text-center">
         <SocialAuth />
