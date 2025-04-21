@@ -57,7 +57,9 @@ function SignUp({ className }: Props) {
       </div>
 
       <div className="text-center">
-        <Button className="px-8 font-medium uppercase">Sign up</Button>
+        <Button aria-label="Sign up" className="px-8 font-medium uppercase">
+          Sign up
+        </Button>
       </div>
     </form>
   );

@@ -64,7 +64,9 @@ function SignIn({ className }: Props) {
             </div>
           </div>
           <div className="text-center">
-            <Button className="px-8 font-medium uppercase">login</Button>
+            <Button className="px-8 font-medium uppercase" aria-label="Sign in">
+              login
+            </Button>
           </div>
         </form>
 
@@ -84,6 +86,7 @@ function SignIn({ className }: Props) {
               }}
               className="cursor-pointer font-medium"
               type="button"
+              aria-label="Go back"
             >
               <ArrowLeftIcon className="text-muted-foreground/30 hover:text-muted-foreground/50 size-7" />
             </button>
@@ -104,7 +107,9 @@ function SignIn({ className }: Props) {
           </div>
 
           <div className="text-center">
-            <Button className="px-6 font-medium uppercase">Submit</Button>
+            <Button className="px-6 font-medium uppercase" aria-label="Submit">
+              Submit
+            </Button>
           </div>
         </form>
       </motion.div>

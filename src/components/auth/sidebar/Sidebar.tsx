@@ -47,6 +47,7 @@ function Sidebar({ initialForm, activeForm, setActiveForm }: Props) {
               (activeForm || initialForm) === "signin" ? "signup" : "signin",
             );
           }}
+          aria-label={activeForm || initialForm}
         >
           {/* Button texts */}
           <motion.div
@@ -90,22 +91,27 @@ function Sidebar({ initialForm, activeForm, setActiveForm }: Props) {
           <img
             src={BagShape}
             className="absolute -top-5 -right-16 size-42 -rotate-[31deg]"
+            alt="background bag shape"
           />
           <img
             src={BagsShape}
             className="absolute top-40 left-30 size-20 rotate-[23deg] lg:top-2 lg:left-76 lg:size-24"
+            alt="background bags shape"
           />
           <img
             src={phoneShape}
             className="absolute top-24 left-132 hidden size-30 rotate-[42deg] md:block lg:left-122"
+            alt="background phone shape"
           />
           <img
             src={hatShape}
             className="absolute top-72 left-186 size-16 -rotate-[31deg] opacity-40 lg:left-110"
+            alt="background hat shape"
           />
           <img
             src={shirtShape}
             className="absolute top-106 left-58 size-32 -rotate-[31deg]"
+            alt="background shirt shape"
           />
         </motion.div>
 
