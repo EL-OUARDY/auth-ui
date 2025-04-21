@@ -1,7 +1,7 @@
 import { Variants } from "motion/react";
 import { FormType } from "./Auth";
 
-export const ANIMATION_DURATION = 1.2;
+export const ANIMATION_DURATION = 1;
 
 export const formsContainerVariants: Variants = {
   initial: ({ width, initialForm }) => {

@@ -41,7 +41,7 @@ function Sidebar({ initialForm, activeForm, setActiveForm }: Props) {
       >
         <MotionButton
           {...anim(activeForm, sidebarBtnVariants)}
-          className="z-101 mt-36 w-2/5 overflow-hidden p-0 font-medium uppercase"
+          className="z-101 mt-38 w-2/5 overflow-hidden p-0 font-medium uppercase"
           variant="outline"
           onClick={() => {
             if (!isTransDone) return;

@@ -91,14 +91,14 @@ export const btnContainerVariants: Variants = {
     right: 0,
     transition: {
       ...transitionConfig,
-      duration: ANIMATION_DURATION - 0.15,
+      duration: ANIMATION_DURATION - 0.12,
     },
   },
   signup: {
     right: `${(2 / 3) * 100}%`,
     transition: {
       ...transitionConfig,
-      duration: ANIMATION_DURATION - 0.15,
+      duration: ANIMATION_DURATION - 0.12,
     },
   },
 };
