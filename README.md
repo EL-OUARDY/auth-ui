@@ -31,13 +31,26 @@ This project is optimized for performance and accessibility. Below is a Lighthou
 - Vite
 - Radix UI (for accessible components)
 
-## Getting Started
+## Project Structure
 
-### Prerequisites
+```
+src/
+├── components/
+│   └── auth/         # Authentication related
+│       │── signin/   # Signin components + animation
+│       │── signup/   # Signup components
+│       └── sidebar/  # Sidebar components + animation
+components
+│   ├── icons/        # SVG icons components
+│   └── ui/           # Reusable UI components
+├── lib/
+│   └── utils.ts      # Utility functions
+└── assets/
+    ├── fonts/        # Custom fonts
+    └── img/          # Images and background shapes
+```
 
-- Node.js (v18 or higher)
-
-### Installation
+## Installation
 
 1. Clone the repository:
 
@@ -59,25 +72,6 @@ npm run dev
 ```
 
 4. Open your browser and visit `http://localhost:3000`
-
-## Project Structure
-
-```
-src/
-├── components/
-│   └── auth/         # Authentication related
-│       │── signin/   # Signin components + animation
-│       │── signup/   # Signup components
-│       └── sidebar/  # Sidebar components + animation
-components
-│   ├── icons/        # SVG icons components
-│   └── ui/           # Reusable UI components
-├── lib/
-│   └── utils.ts      # Utility functions
-└── assets/
-    ├── fonts/        # Custom fonts
-    └── img/          # Images and background shapes
-```
 
 ## Contributing
 
