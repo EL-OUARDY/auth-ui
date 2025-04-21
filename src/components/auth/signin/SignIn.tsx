@@ -26,7 +26,9 @@ function SignIn({ className }: Props) {
         className="relative flex items-center lg:gap-4 lg:p-4"
       >
         <form className="sign-in relative flex w-full flex-shrink-0 flex-col gap-4 px-4 text-center lg:min-w-full lg:px-0">
-          <h2 className="text-primary text-5xl font-medium">Sign in</h2>
+          <h2 className="text-primary text-5xl font-medium tracking-tighter">
+            Sign in
+          </h2>
           <div className="social-login text-muted-foreground flex justify-center gap-4 text-center">
             <SocialAuth />
           </div>
@@ -42,11 +44,11 @@ function SignIn({ className }: Props) {
               icon={<PasswordIcon className="size-4" />}
             />
           </div>
-          <div className="text-muted-foreground flex items-center justify-between font-[350]">
+          <div className="text-muted-foreground flex items-center justify-between text-sm font-[350]">
             <div className="flex items-center gap-1 hover:underline">
               <Checkbox
                 id="remember-me"
-                className="mt-[1px] size-3.5 cursor-pointer shadow-none"
+                className="-mt-1 size-3.5 cursor-pointer shadow-none"
               />
               <label htmlFor="remember-me" className="cursor-pointer">
                 Remember Me
@@ -90,11 +92,11 @@ function SignIn({ className }: Props) {
             >
               <ArrowLeftIcon className="text-muted-foreground/30 hover:text-muted-foreground/50 size-7" />
             </button>
-            <h2 className="text-primary text-3xl font-medium">
+            <h2 className="text-primary text-3xl font-medium tracking-tighter">
               Forgot Your Password?
             </h2>
           </div>
-          <div className="text-muted-foreground text-lg">
+          <div className="text-muted-foreground text-base">
             Don't worry! Just enter your email address below and we'll send you
             a reset link.
           </div>

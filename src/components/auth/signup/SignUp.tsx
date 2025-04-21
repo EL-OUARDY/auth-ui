@@ -16,7 +16,9 @@ function SignUp({ className }: Props) {
     <form
       className={cn("sign-up flex flex-col gap-4 px-4 text-center", className)}
     >
-      <h2 className="text-primary text-5xl font-medium">New Account</h2>
+      <h2 className="text-primary text-5xl font-medium tracking-tighter">
+        Create Account
+      </h2>
       <div className="social-login text-muted-foreground flex justify-center gap-4 text-center">
         <SocialAuth />
       </div>
@@ -38,10 +40,10 @@ function SignUp({ className }: Props) {
           icon={<PasswordIcon className="size-4" />}
         />
       </div>
-      <div className="text-muted-foreground flex items-center justify-center gap-1">
+      <div className="text-muted-foreground flex items-center justify-center gap-1 text-sm">
         <Checkbox
           id="privacy-policy"
-          className="mt-[1px] size-3.5 cursor-pointer shadow-none"
+          className="-mt-1 size-3.5 cursor-pointer shadow-none"
         />
         <label htmlFor="privacy-policy" className="cursor-pointer">
           I agree to the{" "}
